@@ -4,7 +4,7 @@ import numpy as np
 def Recolectar_primos_archivo(filename):
     p_numbs = []
     #El código supone que los números empiezan en 2
-    with open(filename,"r") as file:
+    with open(filename,"a+") as file:
         data = file.readlines()
         for d in data:
             p_numbs.append(int(d.rstrip('\n')))
@@ -48,4 +48,4 @@ def Criba(a,b,filename="datos.txt"):
             if p_arr[i]:
                 p_nnumbs.append(i)
         Escribir_Primos_Archivo(filename,p_nnumbs)
-Criba(0,100)
+Criba(0,1000)
