@@ -5,6 +5,7 @@ def Recolectar_primos_archivo(filename):
     p_numbs = []
     #El código supone que los números empiezan en 2
     with open(filename,"a+") as file:
+        file.seek(0)
         data = file.readlines()
         for d in data:
             p_numbs.append(int(d.rstrip('\n')))
@@ -26,7 +27,6 @@ def Criba(a,b,filename="datos.txt"):
                 l = range(i**2,b+1,i)
                 p[l]=0
         p_numbs = [i for i,pu in enumerate(p) if pu]        
-        print(p)
         Escribir_Primos_Archivo(filename,p_numbs)
     else:
         #Calculamos el array de no-primos anteriores
@@ -48,4 +48,4 @@ def Criba(a,b,filename="datos.txt"):
             if p_arr[i]:
                 p_nnumbs.append(i)
         Escribir_Primos_Archivo(filename,p_nnumbs)
-Criba(0,1000)
+Criba(0,2000)
